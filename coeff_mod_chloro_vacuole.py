@@ -2,10 +2,32 @@
 """
 Created on Thu Dec 12 22:34:46 2024
 
-@author: angel
+@author: Moges Retta
+Determine the terms Sp and Su associated with the source terms expressing 
+the resistance of  due to chloroplast envelope, plasma membrane, tonoplast, 
+cell wall, and the plasmodesma
+
+Inputs
+air : geometrical domain of air
+chloro : geometrical domain of M chloroplasts
+epid : geometrical domain of epidermis
+d : array containing voxel dimensions, dx,dy,dz
+D : diffusion coefficients assigned to appropriate domain at position i, j , k
+geom : geometrical domain of tissue
+meso_bundle : geometrical domain of mesophyll and bundle-sheath cells (BS cells have indices>100, M cells<100, air=0)
+meso_ori : geometrical domain of mesophyll cells
+U : external CO2 concentration (umol/m3)
+para_CO2 : set of parameters for CO2 diffusion
+vacuole : geometrical domain of vacuole
+Outputs
+a : coefficients of the flux associated with the element of geometry at position i,j,k
+
 """
 
 import math
+
+import h_mem
+
 def coeff_mod_chloro_vacuole(i, j, k, i1, j1, k1, T, D, geom, chloro, vacuole, air, meso_bundle, u_CO2, epid, meso_ori):
     tcw_m = 0.161e-6
     tcw_b = 0.188e-6
@@ -21,11 +43,11 @@ def coeff_mod_chloro_vacuole(i, j, k, i1, j1, k1, T, D, geom, chloro, vacuole, a
     phi_pd = 0.03
     r_pd = (tcw_b + tcw_m) / (D_CO2 * Hen * dx * phi_pd)
     h_epid = 6.99e-6 * (D_CO2 / D_CO2_25) * (Hen / Hen_CO2_25)
-if (i == 0) or (j == 0) or (k == 0) or (i == len(geom) - 1) or (j == len(geom[0]) - 1) or (k == len(geom[0][0]) - 1):
-    a = 0
-else:
-    D1 = D[i][j][k]
-    D2 = D[i1][j1][k1]
+    if (i == 0) or (j == 0) or (k == 0) or (i == len(geom) - 1) or (j == len(geom[0]) - 1) or (k == len(geom[0][0]) - 1):
+        a = 0
+    else:
+        D1 = D[i][j][k]
+        D2 = D[i1][j1][k1]
     a = 2 * D1 * D2 / (D1 + D2)
 
     # Adding the cuticle resistence between the epidermis and air
