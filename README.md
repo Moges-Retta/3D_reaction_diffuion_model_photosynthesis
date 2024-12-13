@@ -1,9 +1,16 @@
 # Reaction diffusion model of CO2 during C4 photosynthesis
 
-The Python code provided in this manual allows users to simulate the gas transport dynamics in a C4 leaf, and to study the effects of different environmental conditions on these processes. The code has been extensively tested and validated using experimental data from maize plants and can be easily adapted to other C4 and C3 plant species.
-This coding manual is associated with the publication "A reaction-diffusion model for photosynthesis gas transport in C4 plant maize" (DOI: https://doi.org/10.1093/jxb/erad138), which describes the development and validation of the model in detail. The manual is structured in a way that allows users to follow the steps of the model implementation, from the definition of the system parameters to the simulation and analysis of the results.
-We hope that this coding manual will be a valuable resource for researchers interested in studying photosynthesis gas transport in C4 plants and that it will contribute to a better understanding of the complex processes involved in this fundamental biological function.
-M A Retta, X Yin, Q T Ho, R Watté, H N C Berghuijs, P Verboven, W Saeys, F J Cano, O Ghannoum, P C Struik, B M Nicolaï, The role of chloroplast movement in C4 photosynthesis: A theoretical analysis using a 3-D reaction-diffusion model for maize, Journal of Experimental Botany, 2023, erad138, https://doi.org/10.1093/jxb/erad138
+The Python code provided in this repository allows users to simulate the gas 
+transport dynamics in a C4 leaf, and to study the effects of different environmental 
+conditions on these processes. The code has been extensively tested and validated 
+using experimental data from maize plants and can be easily adapted to other 
+C4 and C3 plant species.
+
+This coding manual is associated with the publication
+"A reaction-diffusion model for photosynthesis gas transport in C4 plant maize" 
+(DOI: https://doi.org/10.1093/jxb/erad138), which describes the development 
+and validation of the model in detail. 
+
 
 ## Analyze results.py
 Calculate the rate of photosynthesis, CO2 concentrations, and CO2 conductances
