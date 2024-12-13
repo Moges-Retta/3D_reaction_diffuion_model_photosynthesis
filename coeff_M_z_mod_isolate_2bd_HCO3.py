@@ -2,7 +2,33 @@
 """
 Created on Thu Dec 12 22:32:22 2024
 
-@author: angel
+@author: Moges Retta
+Determine the coefficient for the problem in the z-direction for 
+
+Inputs
+air : geometrical domain of air
+chloro : geometrical domain of M chloroplasts
+epid : geometrical domain of epidermis
+d : array containing voxel dimensions, dx,dy,dz
+D : diffusion coefficients assigned to the appropriate domain
+geom : geometrical domain of tissue
+meso_bundle : geometrical domain of mesophyll and bundle-sheath cells
+meso_ori : geometrical domain of mesophyll cells
+U : external CO2 concentration (umol/m3)
+para_HCO3 : set of parameters for bicarbonate diffusion
+vacuole : geometrical domain of vacuole
+
+Outputs
+aB : coefficients of the flux leaving the bottom face, z direction
+aE : coefficients of the flux leaving the east face, x direction
+aN : coefficients of the flux leaving the north face, y direction
+aP : coefficients of the flux at the node
+aS : coefficients of the flux leaving the south face, y direction
+aT : coefficients of the flux leaving the top face, z direction
+aW : coefficients of the flux leaving the west face, x direction
+Su : constant terms of the source term
+Sp : variable terms of the source term
+
 """
 import numpy as np
 def coeff_M_z_mod_isolate_2bd_HCO3(geom, T, D, d, R, chloro, vacuole, meso_bundle, meso_ori, air, epid):
