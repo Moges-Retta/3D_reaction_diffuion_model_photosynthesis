@@ -25,7 +25,6 @@ a : coefficients of the flux associated with the element of geometry at position
 """
 
 import math
-
 import h_mem
 
 def coeff_mod_chloro_vacuole(i, j, k, i1, j1, k1, T, D, geom, chloro, vacuole, air, meso_bundle, u_CO2, epid, meso_ori):
